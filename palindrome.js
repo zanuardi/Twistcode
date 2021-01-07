@@ -5,27 +5,27 @@ function isPalindrome(str1) {
 
 function longestPalindrome(str1) {
 
-    var max_length = 0,
-        maxp = '';
+    var maxLength = 0,
+        maxPalindrome = '';
 
     for (var i = 0; i < str1.length; i++) {
         var subs = str1.substr(i, str1.length);
 
         for (var j = subs.length; j >= 0; j--) {
-            var sub_subs_str = subs.substr(0, j);
-            if (sub_subs_str.length <= 1)
+            var subStr = subs.substr(0, j);
+            if (subStr.length <= 1)
                 continue;
 
-            if (isPalindrome(sub_subs_str)) {
-                if (sub_subs_str.length > max_length) {
-                    max_length = sub_subs_str.length;
-                    maxp = sub_subs_str;
+            if (isPalindrome(subStr)) {
+                if (subStr.length > maxLength) {
+                    maxLength = subStr.length;
+                    maxPalindrome = subStr;
                 }
             }
         }
     }
 
-    return maxp;
+    return maxPalindrome;
 }
 
 console.log(longestPalindrome("akusukamakannasi"));
